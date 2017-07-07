@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row title">
+    <div class="col-md-12">
+      <h1>{{title}}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <!--<h1>{{title}}</h1>-->
+      <ul class="beer">
+        <li *ngFor="let beer of beers"
+            [class.selected]="beer === selectedBeer"
+            (click)="onSelect(beer)">
+          <span class="badge">{{beer.id}} </span> {{beer.name}}
+        </li>
+      </ul>
+    </div>
+
+
+  <!--<div class="container">-->
+  <div class="col-md-8">
+
+    <div *ngIf="selectedBeer">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+
+          <div class="h2">
+            {{selectedBeer.name | uppercase}}
+          </div>
+          <div class="panel-body">
+            <beer-detail></beer-detail> <!-- calls the beer-detail component, which points to the beer-detail.html file to display the details -->
+            <!--<button type="button" class="btn-primary" (click)="gotoDetail()">View Details</button>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--</div>-->
+  </div>
+
+
+</div>
+
+
+
+ <!-- <div class="col-md-4">
+    <div class="fred">
+      <div *ngIf="selectedBeer">
+        <h2>{{selectedBeer.name}} details!</h2>
+        <div>
+          <label><b>id: </b></label>{{selectedBeer.id}}
+        </div>
+        <div>
+          <label><b>name: </b></label>
+          <input [(ngModel)]="selectedBeer.name" placeholder="name"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4"></div>-->
+
+
